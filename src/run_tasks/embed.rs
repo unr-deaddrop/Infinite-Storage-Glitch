@@ -79,7 +79,7 @@ pub async fn run_embed(args: EmbedParams) -> anyhow::Result<()> {
 
             let data = Data::from_color(bytes);
 
-            etcher::etch("output.avi", data, settings)?;
+            etcher::etch(&args.out_path.expect("No outpath in arguments"), data, settings)?;
         }
         OutputMode::Binary => {
             let bytes = etcher::rip_bytes(&args.in_path.expect("no path in arguments"))?;
@@ -87,7 +87,7 @@ pub async fn run_embed(args: EmbedParams) -> anyhow::Result<()> {
 
             let data = Data::from_binary(binary);
 
-            etcher::etch("output.avi", data, settings)?;
+            etcher::etch(&args.out_path.expect("No outpath in arguments"), data, settings)?;
         }
     }
 

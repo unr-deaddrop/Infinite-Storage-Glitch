@@ -24,6 +24,9 @@ pub struct EmbedParams {
     /// Path to the file with the data to encode
     pub in_path: Option<String>,
 
+    /// Path to file output (including extension)
+    pub out_path: Option<String>,
+
     /// Preset to use when encoding data.
     /// More specific encoding options override preset options.
     #[arg(short, long)]
